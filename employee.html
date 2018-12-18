@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body>
+
+
+<table id="myTable">
+  <tr>
+    <td>Name</td>
+    <td>Vehicles</td>
+    <td>Date of joining</td>
+     <td>Age</td>
+       <td>Metropolian status</td>
+  </tr>
+  
+  <tr>
+    <td>Aji</td>
+    <td>nano</td>
+    <td>03.12.2018</td>
+     <td>20</td>
+     <td>yes</td>
+  </tr><br><br> <tr>
+    <td>Venkat</td>
+    <td>tata</td>
+    <td>03.12.2018</td>
+    <td>20</td>
+    <td>no</td>
+  </tr><br><br>
+   <tr>
+    <td>Sangami</td>
+    <td>bmw</td>
+    <td>03.12.2018</td>
+    <td>20</td><br><br>
+    <td>yes</td>
+  </tr>
+  
+  
+  
+</table><br><br>
+
+<p><button onclick="sortTable()">Sort</button></p>
+
+
+<p><button onclick="myFunction()">select employee name</button></p>
+
+
+<script>
+
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+
+  while (switching) {
+    
+    switching = false;
+    rows = table.rows;
+   
+    for (i = 1; i < (rows.length - 1); i++) {
+      
+      shouldSwitch = false;
+      
+      x = rows[i].getElementsByTagName("TD")[0];
+      y = rows[i + 1].getElementsByTagName("TD")[0];
+     
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+     
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+function myFunction() {
+    alert(document.getElementById("myTable").rows[1].cells[0].innerHTML);
+     alert(document.getElementById("myTable").rows[2].cells[0].innerHTML);
+      alert(document.getElementById("myTable").rows[3].cells[0].innerHTML);
+ }
+ </script>
+
+<form action="/action_page.php">
+  <select name="cars">
+      <option value="audi">vehicles</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+    
+  
+  </select>
+  <br><br>
+  <input type="submit">
+  
+</form>
+
+
+
+
+</body>
+</html>
